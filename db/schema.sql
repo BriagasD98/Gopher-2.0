@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS gopher2_db;
+
+CREATE DATABASE gopher2_db;
