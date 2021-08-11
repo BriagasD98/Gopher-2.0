@@ -54,23 +54,15 @@
     </header>
     
     <!--Search Section-->
-    
-    <!--Get directions section (map and address)-->
-    <div class="container noPhoto">
-        <div class="card-header"><h2 id="goPherIt"></h2></div>
-        <div class="row" id = "frameRow">
-            <div class="column col-6" id="iframe">
-            
-            </div>
-            <div class="column col-6" id="adressFrameBg">
-                <div id="adressFrame">
 
-                </div>
-
-            </div>
-        </div>
-    </div>
+    <main>
+      {{{ body }}}
+    </main>
     
+    <footer>
+      Thanks for visiting!
+    </footer>
+
     <!-- The Modal Background-->
     <div id="modalBG" class="modal-bg">
 
@@ -110,11 +102,11 @@
 
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="/javascript/homepage-search.js"></script>
-    
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
     
 </body>
+
 </html>
