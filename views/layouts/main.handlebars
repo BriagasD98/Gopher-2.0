@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <title>Gopher</title>
+</head>
+<body>
+    <!--Header-->
+    <header>
+        <div class="logo">
+        <h1>
+            <a href="index.html">Gopher.</a> 
+        </h1> <img src="assets/images/96860-groundhog-day-cartoon-gopher-for-events-near-me.png">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <!-- Trigger/Open The Gopher It Modal -->
+                    <button id="modalBtn">Why Gopher It</button>
+                </li>
+                
+                <li>
+                    <!-- Trigger/Open The Connect Modal -->
+                    <button id="connectBtn">Connect</button>
+                </li>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+                {{#if loggedIn}}
+
+                    <li>
+                        <a href="/dashboard">Dashboard</a>
+                    </li>
+                    <li>
+                        <button id="logout" class="btn-no-style">logout</button>
+                    </li>
+
+                {{else}}
+
+                    <li>
+                        <a href="/login">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/login">login</a>
+                    </li>
+
+                {{/if}}
+            </ul>
+        </nav>      
+    </header>
+    
+    <!--Search Section-->
+
+    <main>
+      {{{ body }}}
+    </main>
+    
+    <footer>
+      Thanks for visiting!
+    </footer>
+
+    <!-- The Modal Background-->
+    <div id="modalBG" class="modal-bg">
+
+    <!-- Gopher It Modal content -->
+        <div class="modal-content first-modal">
+            <div class="modal-header">
+                <div class="title"><h4>Why Gopher It</h4></div>
+            </div>
+            <div class="modal-body">
+                <p>
+                What is and why should you Gopher? Gopher help take the guess work out of trying find something to do.
+                This site helps you and friends make plans easier and find fun events all can agree on.
+                Why Gopher? Why not? Put in your state and pick an event you are in the mood for and let us do the rest.
+                All that's left is you to pick what catches your eye, Boom you have your day planned.
+                There is a  Feeling Lucky option for those adventurous types. 
+                </p>
+            </div>
+            <span id="modalClose" class="modal-close">X</span>
+        </div>
+
+    </div>
+
+    <!--Connect Modal Content-->
+    <div id="connectModalBG" class="modal-bg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title"><h4>Connect</h4></div>
+            </div>
+            <div class="modal-body">
+                <h5>Please reach out with any questions or concerns!</h5>
+                <p><a href="Fourcodingstudent@hotmail.com">Fourcodingstudent@hotmail.com</a></p>
+                <p><a href="Caddyshackgopher@billmurry.com">Caddyshackgopher@billmurry.com</a></p>
+                <p><a href="PunxsutawneyPhill@shadow.net">PunxsutawneyPhill@shadow.net</a></p>
+            </div>
+            <span id ="connectClose" class="modal-close">X</span>
+        </div>
+
+    </div>
+
+    <script src="/javascript/homepage-search.js"></script>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+    
+</body>
+
+</html>
