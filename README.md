@@ -13,7 +13,4 @@ safer and easier for event-seekers to **Gopher it.**
 <br/>
 
 # Gopher-1.0
-
-
-
-
+![Screenshot (58)](https://user-images.githubusercontent.com/83102464/128966994-88bfa217-48d8-4180-bece-a558bd0dc086.png)
