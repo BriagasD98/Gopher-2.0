@@ -1,4 +1,4 @@
-# Gopher-2.0
+# Gopher-2.0 Elevator Pitch
 
 **Gopher 2.0** is an updated version of the **Gopher 1.0** project which was collaboratively created in June 2021.
 **Gopher 1.0** was a static webpage which was meant to be an event finder to help users find events in their area that they may be
