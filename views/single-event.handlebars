@@ -1,0 +1,48 @@
+<div class="single-event">
+      <article class="event">
+        <div class="title">
+            <h2>{{event.title}}<h2></h2>
+        </div>
+        <div class="description">
+            <p>{{event.event_description}}</p>
+        </div>
+        <div class="category">
+            <h3>{{event.category}}</h3>
+        </div>
+        <div class="date">
+            <h3>{{event.date}}</h3>
+        </div>
+        <!--HERES THE iFRAME-->
+      </article>
+</div>
+
+<h2>Comments</h2>
+
+{{#if loggedIn}}
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add comment</button>
+  </div>
+</form>
+{{/if}}
+
+<div class="comments">
+  {{#each event.comments}}
+  <section class="comment">
+    <div class="meta">
+      {{user.username}} on {{created_at}}
+    </div>
+    <div class="text">
+      {{comment_text}}
+    </div>
+  </section>
+  {{/each}}
+</div>
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}
