@@ -1,0 +1,34 @@
+<article>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    Edit Event
+  </h2>
+  <form class="edit-evet-form">
+    <div>
+      <input name="event-title" type="text" value="{{event.title}}" />
+    </div>
+    <div>
+      <textarea name="event-description">{{event.event_description}}</textarea>
+    </div>
+    <div>
+      <input name="date" type="text" value="{{event.date}}" />
+    </div>
+    <div>
+      <input name="event-location-street">{{event.address[0]}}</textarea>
+    </div>
+    <div>
+      <input name="event-location-zip">{{event.address[1]}}</textarea>
+    </div>
+    <div>
+      <input name="event-location-city">{{event.address[2]}}</textarea>
+    </div>
+    <div>
+      <input name="event-location-state">{{event.address[3]}}</textarea>
+    </div>
+    <button type="submit">Save event</button>
+    <button type="button" class="delete-post-btn">Delete event</button>
+  </form>
+</article>
+
+<script src="/javascript/edit-event.js"></script>
+<script src="/javascript/delete-event.js"></script>
