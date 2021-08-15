@@ -482,6 +482,11 @@ h5{
 }
 
 /* Action form styling */
+.action-form {
+    width: 60%;
+    justify-content: center;
+    margin: 10px 20px 10px 20px;
+}
 
 /*Media Queries*/
 
