@@ -174,7 +174,7 @@ header nav ul li button:hover{
 }
 
 input{
-    width: 100%;
+    width: 60%;
     padding: 6px;
     margin: 0 0 10px 0;
     border-radius: 10px;
@@ -222,6 +222,11 @@ input{
 }
 
 /* Event info*/
+.new-event-form {
+    width: 60%;
+    justify-content: center;
+    margin: 10px 20px 10px 20px;
+}
 
 #eventInfo .card{
     max-width: 100%;
@@ -463,6 +468,25 @@ h5{
     text-align: center;
 }
 
+/* Login and signup styling */
+.login-form {
+    width: 60%;
+    justify-content: center;
+    margin: 10px 20px 10px 20px;
+}
+
+.signup-form {
+    width: 60%;
+    justify-content: center;
+    margin: 10px 20px 10px 20px;
+}
+
+/* Action form styling */
+.action-form {
+    width: 60%;
+    justify-content: center;
+    margin: 10px 20px 10px 20px;
+}
 
 /*Media Queries*/
 
