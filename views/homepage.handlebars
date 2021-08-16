@@ -1,7 +1,48 @@
     <!--This where the Search Section goes-->
 <form class="action-form" action="/action_page.php">
   <input placeholder="City or Zipcode" type="text" id="fname" name="fname">
-  <input type= "date">
+  <input type= "date" name="date">
+  <!--This one should be category instead I think-->
   <input placeholder= "Search for artist, venues, and events" type="text" id="lname" name="lname">
   <input type="submit" value="Submit">
 </form>
+
+
+<!--Event List-->
+{{#if events}}
+  
+  {{#unless loggedIn}}
+    <ul class="event-list">
+      {{#each events}}
+      <li>
+        <article class="event">
+            <div class="title">
+              <h2>{{title}}</h2>
+            </div>
+            <div class="date">
+                {{date}}
+            </div>
+        </article>
+      </li>
+      {{/each}}
+    </ul>
+  {{/unless}}
+
+  {{#if loggedIn}}
+    <ul class="event-list">
+      {{#each events}}
+      <li>
+        <article class="post">
+            <div class="title">
+              <a href="/event/{{id}}">{{title}}</a>
+            </div>
+            <div class="date">
+                {{date}}
+            </div>
+        </article>
+      </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+{{/if}}
