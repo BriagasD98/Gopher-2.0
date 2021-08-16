@@ -1,15 +1,4 @@
-//GET all events
-// looks good but double check^^
-//GET one event
-// needs editing^^
-//GET all events by category
-// needs editing^^
-//POST create an event
-// needs editing^^
-//PUT edit an event
-// needs editing^^
-//DELETE an event
-// looks good but double check^^
+// Double check everything!!!!
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Category, Comment, Event, User, Vote } = require('../../models');
@@ -23,6 +12,7 @@ router.get('/', (req, res) => {
       'id',
       'post_url',
       'title',
+      'category',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
@@ -39,6 +29,10 @@ router.get('/', (req, res) => {
       {
         model: User,
         attributes: ['username']
+      },
+      {
+          model: Category,
+          attributes: ['title']
       }
     ]
   })
@@ -59,6 +53,7 @@ router.get('/:id', (req, res) => {
       'id',
       'post_url',
       'title',
+      'category',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
@@ -74,6 +69,10 @@ router.get('/:id', (req, res) => {
       {
         model: User,
         attributes: ['username']
+      },
+      {
+        model: Category,
+        attributes: ['title']
       }
     ]
   })
@@ -96,6 +95,7 @@ router.post('/', withAuth, (req, res) => {
   if (req.session) {
     Event.create({
         title: req.body.title,
+        category: req.body.category,
         post_url: req.body.post_url,
         user_id: req.session.user_id
     })
@@ -113,7 +113,7 @@ router.put('/upvote', withAuth, (req, res) => {
   if (req.session) {
     // pass session id along with all destructured properties on req.body
     Event.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-      .then(updatedEventData => res.json(updatedEventData))
+      .then(updatedVoteData => res.json(updatedVoteData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
