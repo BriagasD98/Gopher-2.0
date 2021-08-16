@@ -12,13 +12,13 @@
 // looks good but double check^^
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Vote } = require('../../models');
+const { Category, Comment, Event, User, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
   console.log('======================');
-  Post.findAll({
+  Event.findAll({
     attributes: [
       'id',
       'post_url',
@@ -42,7 +42,7 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => res.json(dbPostData))
+    .then(dbEventData => res.json(dbEventData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -51,7 +51,7 @@ router.get('/', (req, res) => {
 
 // Get a SINGLE user
 router.get('/:id', (req, res) => {
-  Post.findOne({
+  Event.findOne({
     where: {
       id: req.params.id
     },
@@ -77,12 +77,12 @@ router.get('/:id', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
+    .then(dbEventData => {
+      if (!dbEventData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbEventData);
     })
     .catch(err => {
       console.log(err);
@@ -94,12 +94,12 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   if (req.session) {
-    Post.create({
+    Event.create({
         title: req.body.title,
         post_url: req.body.post_url,
         user_id: req.session.user_id
     })
-    .then(dbPostData => res.json(dbPostData))
+    .then(dbEventData => res.json(dbEventData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -112,8 +112,8 @@ router.put('/upvote', withAuth, (req, res) => {
   // make sure the session exists first
   if (req.session) {
     // pass session id along with all destructured properties on req.body
-    Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-      .then(updatedVoteData => res.json(updatedVoteData))
+    Event.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+      .then(updatedEventData => res.json(updatedEventData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -123,7 +123,7 @@ router.put('/upvote', withAuth, (req, res) => {
 
 // Update User post
 router.put('/:id', withAuth, (req, res) => {
-    Post.update(
+    Event.update(
       {
         title: req.body.title
       },
@@ -133,12 +133,12 @@ router.put('/:id', withAuth, (req, res) => {
         }
       }
     )
-      .then(dbPostData => {
-        if (!dbPostData) {
+      .then(dbEventData => {
+        if (!dbEventData) {
           res.status(404).json({ message: 'No post found with this id' });
           return;
         }
-        res.json(dbPostData);
+        res.json(dbEventData);
       })
       .catch(err => {
         console.log(err);
@@ -149,17 +149,17 @@ router.put('/:id', withAuth, (req, res) => {
 // Delete a Post
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
-    Post.destroy({
+    Event.destroy({
       where: {
         id: req.params.id
       }
     })
-      .then(dbPostData => {
-        if (!dbPostData) {
+      .then(dbEventData => {
+        if (!dbEventData) {
           res.status(404).json({ message: 'No post found with this id' });
           return;
         }
-        res.json(dbPostData);
+        res.json(dbEventData);
       })
       .catch(err => {
         console.log(err);
