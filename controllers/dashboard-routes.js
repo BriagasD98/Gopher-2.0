@@ -1,12 +1,13 @@
+// rename "edit-post" to proper view name
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const { Event, User, Comment, Category } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     // console.log(req.session);
     // console.log('===================');
-    /* Post.findAll({
+    /* Event.findAll({
         where: {
             //  use the ID from the session
             user_id: req.session.user_id
@@ -15,6 +16,7 @@ router.get('/', (req, res) => {
             'id',
             'post_url',
             'title',
+            'category'
             'created_at',
             [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
@@ -30,13 +32,17 @@ router.get('/', (req, res) => {
             {
                 model: User,
                 attributes: ['username']
+            },
+            {
+                model: Category,
+                attributes: ['title']
             }
         ]
     })
-    .then(dbPostData => {
+    .then(dbEventData => {
         // serialize data before passing to template
-        const posts = dbPostData.map(post => post.get({ plain: true })); */
-        res.render('dashboard'/* , { posts, loggedIn: true } */ );
+        const events = dbEventData.map(event => event.get({ plain: true })); */
+        res.render('dashboard'/* , { events, loggedIn: true } */ );
     })
     /*.catch(err => {
         console.log(err);
@@ -45,7 +51,7 @@ router.get('/', (req, res) => {
 
 
 router.get('/edit/:id', withAuth, (req, res) => {
-    Post.findByPk(req.params.id, {
+    Event.findByPk(req.params.id, {
       attributes: [
         'id',
         'post_url',
@@ -65,15 +71,19 @@ router.get('/edit/:id', withAuth, (req, res) => {
         {
           model: User,
           attributes: ['username']
+        },
+        {
+          model: Category,
+          attributes: ['title']
         }
       ]
     })
-      .then(dbPostData => {
-        if (dbPostData) {
-          const post = dbPostData.get({ plain: true });
+      .then(dbEventData => {
+        if (dbEventData) {
+          const event = dbEventData.get({ plain: true });
           
           res.render('edit-post', {
-            post,
+            event,
             loggedIn: true
           });
         } else {
