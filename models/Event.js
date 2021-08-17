@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create our Post model
+// create our Event model
 class Event extends Model {
     static upvote(body, models) {
         return models.Vote.create({
@@ -27,7 +27,7 @@ class Event extends Model {
     }
 }
 
-// create fields/columns for Post model
+// create fields/columns for Event model
 Event.init(
     {
         id: {
