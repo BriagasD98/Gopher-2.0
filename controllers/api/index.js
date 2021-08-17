@@ -8,6 +8,6 @@ const categoryRoutes = require('./category-routes');
 router.use('/users', userRoutes);
 router.use('/events', eventRoutes);
 router.use('/comments', commentRoutes);
-router.use('/category', categoryRoutes);
+router.use('/categories', categoryRoutes);
 
 module.exports = router;

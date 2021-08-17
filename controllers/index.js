@@ -1,13 +1,13 @@
 const router = require('express').Router();
 
-const apiRoutes = require('./api/');
+const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes');
 const dashboardRoutes = require('./dashboard-routes');
 const searchRoutes = require('./search-routes');
 
-router.use('/', homeRoutes);
 router.use('/dashboard', dashboardRoutes);
-router.unsubscribe('/search', searchRoutes)
-//router.use('/api', apiRoutes);
+router.use('/search', searchRoutes)
+router.use('/api', apiRoutes);
+router.use('/', homeRoutes);
 
 module.exports = router;

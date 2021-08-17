@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Category } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 // GET all categories
 router.get('/', (req, res) => {
@@ -9,7 +8,6 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'title',
-            []
         ],
     })
     .then(dbCategoryData => res.json(dbCategoryData))
@@ -45,22 +43,21 @@ router.get('/:id', (req, res) => {
 });
 
 // Create a category
-router.post('/', withAuth, (req, res) => {
-    if (req.session) {
+router.post('/', (req, res) => {
+    //if (req.session) {
         Category.create({
             title: req.body.title,
-            user_id: req.session.user_id
         })
         .then(dbCategoryData => res.json(dbCategoryData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
-    }
+    //}
 });
 
 // Edit a category 
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Category.update(
         {
             title: req.body.title
@@ -85,7 +82,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 // Delete a category
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     console.log('id', req.params.id);
     Category.destroy({
         where: {

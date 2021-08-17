@@ -14,17 +14,7 @@ Category.init(
         title: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
-            validate: {
-                len: [1]
-            }
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
+            unique: true
         }
     },    
     {

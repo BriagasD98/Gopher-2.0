@@ -58,4 +58,12 @@ Event.hasMany(Comment, {
     foreignKey: 'event_id'
 });
 
+Category.hasMany(Event, {
+    foreignKey: 'category_id'
+});
+
+Event.belongsTo(Category, {
+    foreignKey: 'category_id'
+});
+
 module.exports = { User, Comment, Event, Category, Vote };
