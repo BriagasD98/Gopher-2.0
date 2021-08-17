@@ -3,13 +3,49 @@ const session = require('express-session');
 const sequelize = require('../config/connection');
 const { Event } = require('../models');
 
-router.get('/:city&:date&:attraction', (req, res) => {
+router.get('/:date&:attraction', (req, res) => {
     const date = req.params.date
-    const attraction = req.params.attraction
+    const category = req.params.category
 
-    Event.findAll({
+    if (date==="thisIsTheDefaultDate"){
+      Event.findAll({
+          where: {
+              category: req.params.category
+          }
+      })
+        .then(dbPostData => {
+          const events = dbPostData.map(post => post.get({ plain: true }));
+    
+          res.render('homepage', {
+            events,
+            loggedIn: req.session.loggedIn
+          });
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    } else if (category==="thisIsTheDefaultCategory"){
+      Event.findAll({
         where: {
-            city: req.params.city,
+            date: req.params.date,
+        }
+    })
+      .then(dbPostData => {
+        const events = dbPostData.map(post => post.get({ plain: true }));
+  
+        res.render('homepage', {
+          events,
+          loggedIn: req.session.loggedIn
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+    }else{
+      Event.findAll({
+        where: {
             date: req.params.date,
             category: req.params.category
         }
@@ -26,6 +62,8 @@ router.get('/:city&:date&:attraction', (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
+    }
+    
   });
   
   module.exports = router;

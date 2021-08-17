@@ -10,8 +10,6 @@ async function newFormHandler(event) {
     const city = document.querySelector('input[name="event-location-city"]').value;
     const state = document.querySelector('input[name="event-location-state"]').value;
 
-  console.log(post_text);
-
     const response = await fetch(`/api/events`, {
       method: 'POST',
       body: JSON.stringify({

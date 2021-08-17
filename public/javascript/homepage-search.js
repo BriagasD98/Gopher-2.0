@@ -1,11 +1,18 @@
 async function searchHandler(event) {
     event.preventDefault();
 
-    const city = document.querySelector('input[name="fname"]').value;
     const date = document.querySelector('input[name="date"]').value;
-    const category = document.querySelector('input[name="event-category"]').value;
 
-    document.location.replace('/search/'+city+'&'+date+'&'+category);
-}
+    if (date===null){
+      date="thisIsTheDefaultDate";
+    }
+
+    const category = document.querySelector('input[name="event-category"]').value;
+    if (category===null){
+      category="thisIsTheDefaultCategory";
+    }
+
+    document.location.replace('/search/'+date+'&'+category);
+};
   
-  document.querySelector('.action-form').addEventListener('submit', searchHandler);
+document.querySelector('.action-form').addEventListener('submit', searchHandler);
