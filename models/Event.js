@@ -14,9 +14,12 @@ class Event extends Model {
                 },
                 attributes: [
                     'id',
-                    'event_url',
                     'title',
-                    'created_at',
+                    'event_description',
+                    'date',
+                    'address',
+                    'user_id',
+                    'category_id'
                     [
                         sequelize.literal('(SELECT COUNT(*) FROM vote WHERE event.id = vote.event_id)'),
                         'vote_count'
@@ -40,17 +43,29 @@ Event.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        event_url: {
+        event_description: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        date: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                isURL: true
-            }
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
+                key: 'id'
+            }
+        },
+        category_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'category',
                 key: 'id'
             }
         }
