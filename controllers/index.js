@@ -8,6 +8,6 @@ const searchRoutes = require('./search-routes');
 router.use('/', homeRoutes);
 router.use('/dashboard', dashboardRoutes);
 router.unsubscribe('/search', searchRoutes)
-//router.use('/api', apiRoutes);
+router.use('/api', apiRoutes);
 
 module.exports = router;
