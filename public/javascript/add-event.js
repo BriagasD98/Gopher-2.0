@@ -4,11 +4,10 @@ async function newFormHandler(event) {
     const title = document.querySelector('input[name="event-title"]').value;
     const event_description = document.querySelector('textarea[name="event-description"]').value;
     const category = document.querySelector('input[name="event-category"]').value;
-    const date = document.querySelector('input[name="event-category"]').value;
+    const date = document.querySelector('input[name="event-date"]').value;
     const street = document.querySelector('input[name="event-location-street"]').value;
-    const zip = document.querySelector('input[name="event-location-zip"]').value;
-    const city = document.querySelector('input[name="event-location-city"]').value;
-    const state = document.querySelector('input[name="event-location-state"]').value;
+
+    const response = await fetch('/api/categories')
 
     const response = await fetch(`/api/events`, {
       method: 'POST',

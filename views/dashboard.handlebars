@@ -1,4 +1,8 @@
 <!--Here is the add new event-->
+
+{{#each event}}
+{{event.id}}
+{{/each}}
 <section>
   <h2>Create New Event</h2>
 
@@ -13,13 +17,17 @@
     </div>
     <div>
         <label for="event-category">Category</label>
-        <input type="text" id="event-category" name="event-category" />
     </div>
+    
     <div class="Address">
         <div>
             <label for="event-location-street">Street Address</label>
             <input type="text" id="event-location-street" name="event-location-street" />
         </div>
+    </div>
+    <div>
+      <label for="event-date">Date</label>
+      <input type="text" id="event-date" name="event-date" />
     </div>
     <button type="submit" class="btn" id="submit-button">Create</button>
   </form>

@@ -25,8 +25,7 @@ router.get('/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'title',
-            []
+            'title'
         ],
     })
     .then(dbCategoryData => {
@@ -83,7 +82,6 @@ router.put('/:id', (req, res) => {
 
 // Delete a category
 router.delete('/:id', (req, res) => {
-    console.log('id', req.params.id);
     Category.destroy({
         where: {
             id: req.params.id
