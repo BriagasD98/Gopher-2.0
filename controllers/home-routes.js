@@ -1,14 +1,22 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
+const { Event, Category } = require('../models');
 
 router.get('/', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
+  Category.findAll({
+  })
+  .then(dbCategoryData => {
+    const categories = dbCategoryData.map(category => category.get({ plain: true }));
+    
+    console.log(categories);
 
-    res.render('homepage');
+    res.render('homepage', {
+      categories,
+      loggedIn: req.session.loggedIn
+    });
+  });
 });
+
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
@@ -53,7 +61,6 @@ router.get('/event/:id', (req, res) => {
         }
         
         const event = dbEventData.get({ plain: true });
-        console.log(post);
   
         res.render('single-event', {
           event,

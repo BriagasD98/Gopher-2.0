@@ -4,33 +4,39 @@ async function newFormHandler(event) {
     const title = document.querySelector('input[name="event-title"]').value;
     const event_description = document.querySelector('textarea[name="event-description"]').value;
     const category = document.querySelector('input[name="event-category"]').value;
-    const date = document.querySelector('input[name="event-category"]').value;
+    const date = document.querySelector('input[name="event-date"]').value;
     const street = document.querySelector('input[name="event-location-street"]').value;
-    const zip = document.querySelector('input[name="event-location-zip"]').value;
-    const city = document.querySelector('input[name="event-location-city"]').value;
-    const state = document.querySelector('input[name="event-location-state"]').value;
 
-  console.log(post_text);
-
-    const response = await fetch(`/api/events`, {
+    let result = await fetch('/api/categories', {
       method: 'POST',
       body: JSON.stringify({
-        title: title,
-        event_description: event_description,
-        category: category,
-        date: date,
-        address: [street, zip, city, state]
+        title: category
       }),
       headers: {
         'Content-Type': 'application/json'
       }
-    });
-  
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
-    }
+    })
+    
+    return result.json()
+      .then(responsedata=>{
+
+        categoryID=responsedata.id;
+        console.log(categoryID);
+
+        fetch(`/api/events`, {
+          method: 'POST',
+          body: JSON.stringify({
+            title: title,
+            event_description: event_description,
+            date: date,
+            address: street,
+            category_id: categoryID
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+      }).then(document.location.replace('/dashboard'));
   }
   
-  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.new-event-form').addEventListener('submit', newFormHandler);

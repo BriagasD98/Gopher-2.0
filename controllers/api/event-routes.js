@@ -34,7 +34,6 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbEventData => {
-      console.log("I got here");
       res.json(dbEventData)})
     .catch(err => {
       console.log(err);
