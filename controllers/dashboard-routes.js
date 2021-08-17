@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
             'id',
             'event_url',
             'title',
-            'category'
+            'category',
             'created_at',
             [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE event.id = vote.event_id)'), 'vote_count']
         ],
