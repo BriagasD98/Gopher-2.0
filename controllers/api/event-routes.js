@@ -1,4 +1,3 @@
-// Double check everything!!!!
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Category, Comment, Event, User, Vote } = require('../../models');
@@ -10,17 +9,17 @@ router.get('/', (req, res) => {
   Event.findAll({
     attributes: [
       'id',
-      'post_url',
+      'event_url',
       'title',
       'category',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE event.id = vote.event_id)'), 'vote_count']
     ],
     order: [['created_at', 'DESC']],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'event_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -51,16 +50,16 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
+      'event_url',
       'title',
       'category',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE event.id = vote.event_id)'), 'vote_count']
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'event_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -78,7 +77,7 @@ router.get('/:id', (req, res) => {
   })
     .then(dbEventData => {
       if (!dbEventData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No event found with this id' });
         return;
       }
       res.json(dbEventData);
@@ -89,14 +88,14 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// Create a POST
+// Create an EVENT
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+  // expects {title: 'Taskmaster goes public!', event_url: 'https://taskmaster.com/press', user_id: 1}
   if (req.session) {
     Event.create({
         title: req.body.title,
         category: req.body.category,
-        post_url: req.body.post_url,
+        event_url: req.body.event_url,
         user_id: req.session.user_id
     })
     .then(dbEventData => res.json(dbEventData))
@@ -107,7 +106,7 @@ router.post('/', withAuth, (req, res) => {
   }
 });
 
-// Vote on user post
+// Vote on user event
 router.put('/upvote', withAuth, (req, res) => {
   // make sure the session exists first
   if (req.session) {
@@ -121,7 +120,7 @@ router.put('/upvote', withAuth, (req, res) => {
   }
 });
 
-// Update User post
+// Update User event
 router.put('/:id', withAuth, (req, res) => {
     Event.update(
       {
@@ -135,7 +134,7 @@ router.put('/:id', withAuth, (req, res) => {
     )
       .then(dbEventData => {
         if (!dbEventData) {
-          res.status(404).json({ message: 'No post found with this id' });
+          res.status(404).json({ message: 'No event found with this id' });
           return;
         }
         res.json(dbEventData);
@@ -146,7 +145,7 @@ router.put('/:id', withAuth, (req, res) => {
       });
   });
 
-// Delete a Post
+// Delete an Event
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
     Event.destroy({
@@ -156,7 +155,7 @@ router.delete('/:id', withAuth, (req, res) => {
     })
       .then(dbEventData => {
         if (!dbEventData) {
-          res.status(404).json({ message: 'No post found with this id' });
+          res.status(404).json({ message: 'No event found with this id' });
           return;
         }
         res.json(dbEventData);

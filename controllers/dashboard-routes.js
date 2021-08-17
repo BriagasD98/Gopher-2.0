@@ -14,16 +14,16 @@ router.get('/', (req, res) => {
         },
         attributes: [
             'id',
-            'post_url',
+            'event_url',
             'title',
-            'category'
+            'category',
             'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE event.id = vote.event_id)'), 'vote_count']
         ],
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'comment_text', 'event_id', 'user_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -54,15 +54,15 @@ router.get('/edit/:id', withAuth, (req, res) => {
     Event.findByPk(req.params.id, {
       attributes: [
         'id',
-        'post_url',
+        'event_url',
         'title',
         'created_at',
-        [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+        [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE event.id = vote.event_id)'), 'vote_count']
       ],
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: ['id', 'comment_text', 'event_id', 'user_id', 'created_at'],
           include: {
             model: User,
             attributes: ['username']
