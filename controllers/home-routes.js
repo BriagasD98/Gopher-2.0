@@ -34,7 +34,7 @@ router.get('/event/:id', (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id'],
+          attributes: ['id', 'comment_text', 'event_id', 'user_id'],
           include: {
             model: User,
             attributes: ['username']
