@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const session = require('express-session');
-const sequelize = require('../../config/connection');
-const { Event } = require('../../models');
+const sequelize = require('../config/connection');
+const { Event } = require('../models');
 
 router.get('/:city&:date&:attraction', (req, res) => {
     const date = req.params.date
