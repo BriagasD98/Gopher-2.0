@@ -1,4 +1,4 @@
-/* const router = require('express').Router();
+const router = require('express').Router();
 
 const userRoutes = require('./user-routes.js');
 const eventRoutes = require('./event-routes');
@@ -10,4 +10,4 @@ router.use('/events', eventRoutes);
 router.use('/comments', commentRoutes);
 router.use('/category', categoryRoutes);
 
-module.exports = router; */
+module.exports = router;
