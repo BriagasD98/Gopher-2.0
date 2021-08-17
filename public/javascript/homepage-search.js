@@ -14,5 +14,5 @@ async function searchHandler(event) {
 
     document.location.replace('/search/'+date+'&'+category);
 };
-  
+
 document.querySelector('.action-form').addEventListener('submit', searchHandler);

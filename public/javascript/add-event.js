@@ -7,27 +7,36 @@ async function newFormHandler(event) {
     const date = document.querySelector('input[name="event-date"]').value;
     const street = document.querySelector('input[name="event-location-street"]').value;
 
-    const response = await fetch('/api/categories')
-
-    const response = await fetch(`/api/events`, {
+    let result = await fetch('/api/categories', {
       method: 'POST',
       body: JSON.stringify({
-        title: title,
-        event_description: event_description,
-        category: category,
-        date: date,
-        address: [street, zip, city, state]
+        title: category
       }),
       headers: {
         'Content-Type': 'application/json'
       }
-    });
-  
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
-    }
+    })
+    
+    return result.json()
+      .then(responsedata=>{
+
+        categoryID=responsedata.id;
+        console.log(categoryID);
+
+        fetch(`/api/events`, {
+          method: 'POST',
+          body: JSON.stringify({
+            title: title,
+            event_description: event_description,
+            date: date,
+            address: street,
+            category_id: categoryID
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+      }).then(document.location.replace('/dashboard'));
   }
   
-  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.new-event-form').addEventListener('submit', newFormHandler);
