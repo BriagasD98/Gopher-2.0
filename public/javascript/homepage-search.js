@@ -3,14 +3,17 @@ async function searchHandler(event) {
 
     const date = document.querySelector('input[name="date"]').value;
 
-    if (date===null){
+    if (!date){
       date="thisIsTheDefaultDate";
     }
 
-    const category = document.querySelector('input[name="event-category"]').value;
-    if (category===null){
+    const category = document.querySelector('select[name="dropdown"]').value;
+    if (!category){
       category="thisIsTheDefaultCategory";
     }
+
+    console.log("date: "+date);
+    console.log("category: "+category);
 
     document.location.replace('/search/'+date+'&'+category);
 };
