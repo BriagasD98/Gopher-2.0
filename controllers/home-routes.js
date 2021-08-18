@@ -37,7 +37,7 @@ router.get('/event/:id', (req, res) => {
         'event_description',
         'title',
         'date',
-        'location'
+        'address'
       ],
       include: [
         {
