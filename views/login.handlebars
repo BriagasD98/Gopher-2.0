@@ -1,4 +1,4 @@
-<form class="login-form">
+{{!-- <form class="login-form"> 
   <div>
     <label for="email-login">email:</label>
     <input type="text" id="email-login" />
@@ -28,6 +28,59 @@
   <div>
     <button type="submit">signup</button>
   </div>
-</form>
+</form> --}}
+
+<section class="is-centered">
+      <div class="columns is-centered">
+        <div class="column is-8 is-centered register">
+          <div class="columns">
+            <div class="column left has-text-centered">
+              <h1 class="title has-text-white is-4">Sign Up Today</h1>
+              <p class="description has-text-white">Discover what Gopher can do for you.</p>
+              <form class="signup-form">
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-medium" type="text" id="username-signup" placeholder="Username">
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-medium" type="text" id="email-signup" placeholder="Email">
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-medium" type="password" id="password-signup" placeholder="Password">
+                  </div>
+                </div>
+                <button type="submit" class="button is-block is-fullwidth is-medium">Submit</button>
+                <br />
+              </form>
+            </div>
+            <div class="column right has-text-centered">
+              <h1 class="title has-text-white is-4">Sign In</h1>
+              <p class="description has-text-white">Gopher more.</p>
+              <form class="login-form">
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-medium" type="text" id="email-login" placeholder="Email">
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-medium" type="password" id="password-login" placeholder="Password">
+                  </div>
+                </div>
+                <button type="submit" class="button is-block is-fullwidth is-medium">Submit</button>
+                <br />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <script src="/javascript/login.js"></script>

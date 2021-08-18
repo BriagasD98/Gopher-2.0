@@ -488,21 +488,21 @@ h5{
 
 /* Login and signup styling */
 
-.login-form {
+/* .login-form {
     width: 60%;
     justify-content: center;
     margin: 10px 20px 10px 20px;
-}
+} */
 .login-form label {
     Color: brown;
     font-weight: 600;
 }
 
-.signup-form {
+/* .signup-form {
     width: 60%;
     justify-content: center;
     margin: 10px 20px 10px 20px;
-}
+} */
 
 .signup-form label {
     Color: brown;
