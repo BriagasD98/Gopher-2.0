@@ -41,6 +41,30 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// GET a single category by name
+router.get('/:title', (req, res) => {
+    Category.findOne({
+        where: {
+            title: req.params.title
+        },
+        attributes: [
+            'id',
+            'title'
+        ],
+    })
+    .then(dbCategoryData => {
+        if (!dbCategoryData) {
+            res.status(404).json({ message: 'No Category found with this id'});
+            return;
+        }
+        res.json(dbCategoryData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 // Create a category
 router.post('/', (req, res) => {
     //if (req.session) {

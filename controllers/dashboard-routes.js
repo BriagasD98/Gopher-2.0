@@ -4,7 +4,7 @@ const { Event, User, Comment, Category } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
-    Event.findAll({
+      Event.findAll({
         where: {
             //  use the ID from the session
             user_id: req.session.user_id
@@ -41,14 +41,14 @@ router.get('/', (req, res) => {
     .then(dbEventData => {
         // serialize data before passing to template
         const events = dbEventData.map(event => event.get({ plain: true }));
-        console.log(events);
-        res.render('dashboard', { events, loggedIn: true });
+
+        res.render('dashboard', { events,loggedIn: true });
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
-  });
+});
 
 
 router.get('/edit/:id', (req, res) => {
@@ -82,12 +82,9 @@ router.get('/edit/:id', (req, res) => {
       ]
     })
       .then(dbEventData => {
-          console.log("I got down here");
 
         if (dbEventData) {
           const event = dbEventData.get({ plain: true });
-          
-          console.log(event);
 
           res.render('edit-event', {
             event,
