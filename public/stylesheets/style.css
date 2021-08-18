@@ -312,6 +312,23 @@ img {
     flex: 100%;
 }
 
+.center-elements{
+    display: flex;
+    justify-content: center;
+}
+
+.center-elements button{
+    margin: 10px;
+}
+
+footer a{
+    color: rgb(1, 30, 75);
+}
+
+footer a :hover{
+    color: white;
+}
+
 /*Map Section*/
 
 iframe{
@@ -386,8 +403,9 @@ iframe{
     justify-content: center;
 }
 footer {
-    color: brown;
     font-weight: 600;
+    background-color: rgb(48, 152, 160);
+    padding: 10px;
 }
 
 /* Modal*/

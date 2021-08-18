@@ -1,22 +1,42 @@
-<!--This where the Search Section goes-->
-<form class="action-form" action="/action_page.php">
-<div class="field column">
-  <div class="control multiline">
-  <input class="is-medium" type="date" name="date">
-    <!--This one should be category instead I think-->
-      <select class="dropdown" name = "dropdown">
-        {{#each categories}}
-            <option value = "{{id}}"> {{title}}</option>
-        {{/each}}
-    </select>
-    <input type="submit" value="Submit">
-    </div>
-  </div>
-</form>
+<section class="is-centered">
+      <div class="columns is-centered">
+        <div class="column is-8 is-centered register">
+    
+          <div class="field has-text-centered">
+            <label class="label has-text-white">Date</label>
+            <div class="control">
+              <input class="is-medium" type="date" name="date">
+            </div>
+          </div>
 
-{{events}}
+          <div class="field has-text-centered">
+            <label class="label has-text-white">Subject</label>
+            <div class="control">
+              <div class="select">
+                <select class="dropdown" name = "dropdown">
+                      {{#each categories}}
+                          <option value = "{{id}}"> {{title}}</option>
+                      {{/each}}
+                  </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field center-elements">
+            <div class="control is-centered">
+              <button class="button is-link">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-link is-light">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <!--Event List-->
+
+<section class="is-centered">
 {{#if events}}
   
   {{#unless loggedIn}}
@@ -54,5 +74,6 @@
   {{/if}}
 
 {{/if}}
+</section>
 
 <script src="/javascript/homepage-search.js"></script>
