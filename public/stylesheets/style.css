@@ -187,6 +187,8 @@ input{
     border-radius: 5px;
     margin-bottom: 10px;
     cursor: pointer;
+    color: black;
+    font-weight: 600;
 }
 
 .searchCard{
@@ -229,6 +231,11 @@ input{
 }
 
 .new-event-form label {
+    Color: brown;
+    font-weight: 600;
+}
+
+.edit-event-form label {
     Color: brown;
     font-weight: 600;
 }
