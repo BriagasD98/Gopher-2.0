@@ -75,7 +75,7 @@ header nav ul {
 
 header nav ul li a {
     padding: 10px 15px;
-    font-weight: bold;
+    font-weight: normal;
     font-size: 1.5vw;
 }
 
@@ -88,7 +88,7 @@ header nav ul li a:hover{
 header nav ul li button{
     padding: 10px 15px;
     color: rgb(1, 30, 75);
-    font-weight: bold;
+    font-weight: normal;
     font-size: 1.5vw;
     border: none;
     background-color: var(--tertiary-color);
@@ -469,16 +469,24 @@ h5{
 }
 
 /* Login and signup styling */
+
 .login-form {
     width: 60%;
     justify-content: center;
     margin: 10px 20px 10px 20px;
+}
+.login-form label {
+    Color: brown;
 }
 
 .signup-form {
     width: 60%;
     justify-content: center;
     margin: 10px 20px 10px 20px;
+}
+
+.signup-form label {
+    Color: brown;
 }
 
 /* Action form styling */
