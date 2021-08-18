@@ -52,12 +52,14 @@ router.get('/', (req, res) => {
 
 
 router.get('/edit/:id', (req, res) => {
+    console.log(req.params.id);
     Event.findByPk(req.params.id, {
       attributes: [
         'id',
-        'event_url',
         'title',
-        'created_at',
+        'event_description',
+        'date',
+        'address',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE event.id = vote.event_id)'), 'vote_count']
       ],
       include: [
@@ -71,19 +73,23 @@ router.get('/edit/:id', (req, res) => {
         },
         {
           model: User,
-          attributes: ['username']
+          attributes: ['id', 'username']
         },
         {
           model: Category,
-          attributes: ['title']
+          attributes: ['id','title']
         }
       ]
     })
       .then(dbEventData => {
+          console.log("I got down here");
+
         if (dbEventData) {
           const event = dbEventData.get({ plain: true });
           
-          res.render('edit-post', {
+          console.log(event);
+
+          res.render('edit-event', {
             event,
             loggedIn: true
           });
