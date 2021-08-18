@@ -1,8 +1,4 @@
 <!--Here is the add new event-->
-
-{{#each event}}
-{{event.id}}
-{{/each}}
 <section>
   <h2>Create New Event</h2>
 
@@ -15,10 +11,17 @@
         <label for="event-description">Description</label>
         <textarea name="event-description"></textarea>      
     </div>
-    <div>
-        <label for="event-category">Category</label>
-        <input type="text" id="event-category" name="event-category" />
-    </div>
+    <div class="field has-text-centered" id="categorySection">
+            <label class="label has-text-white">Category</label>
+            <div class="control">
+              <div class="select">
+                <select class="dropdown" name = "dropdown">
+                  <option>--</option>
+                  <option id="newCategory">Add a new category</option>
+                </select>
+              </div>
+            </div>
+          </div>
     
     <div class="Address">
         <div>

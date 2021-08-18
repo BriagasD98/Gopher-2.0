@@ -13,10 +13,17 @@
         <label for="event-description">Description</label>
         <textarea name="event-description">{{event.event_description}}</textarea>      
     </div>
-    <div>
-        <label for="event-category">Category</label>
-        <input type="text" id="event-category" name="event-category" value="{{event.category.title}}" />
-    </div>
+    <div class="field has-text-centered" id="categorySection">
+            <label class="label has-text-white">Category</label>
+            <div class="control">
+              <div class="select">
+                <select class="dropdown" name = "dropdown">
+                  <option>--</option>
+                  <option id="newCategory">Add a new category</option>
+                </select>
+              </div>
+            </div>
+          </div>
     
     <div class="Address">
         <div>
@@ -25,8 +32,8 @@
         </div>
     </div>
     <div>
-       <label for="event-date" value="{{event.date}}">Date</label>
-      <input type= "date" name="event-date">
+       <label for="event-date">Date</label>
+      <input type= "date" name="event-date" value="{{event.date}}"/>
     </div>
     <button type="submit" class="btn" id="submit-button">Submit</button>
   </form>
