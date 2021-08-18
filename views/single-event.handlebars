@@ -12,9 +12,12 @@
         <div class="date">
             <h3>{{event.date}}</h3>
         </div>
+
+Address: {{event.address}}
+
         <!--HERES THE iFRAME-->
         <div class='iframe'>
-          <iframe src = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyCNGVJ1YMzTfo0ANBH6sPMd9kmnZwqUh2o&q={{address}}'
+          <iframe src = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyCNGVJ1YMzTfo0ANBH6sPMd9kmnZwqUh2o&q={{event.address}}'
             width=600
             height=450
             style = border: 0
