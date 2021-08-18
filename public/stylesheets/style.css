@@ -317,6 +317,8 @@ h2{
     font-size: 2.5em;
     padding: 10px;
     border-radius: 5px;
+    color: brown;
+    font-weight: 600;
 }
 
 #iframe h3 {
@@ -375,6 +377,10 @@ iframe{
 
 #frameRow{
     justify-content: center;
+}
+footer {
+    color: brown;
+    font-weight: 600;
 }
 
 /* Modal*/
