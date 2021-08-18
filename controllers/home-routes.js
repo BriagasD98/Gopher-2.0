@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Event, Category } = require('../models');
+const { User, Comment, Event, Category } = require('../models');
 
 router.get('/', (req, res) => {
   Category.findAll({
