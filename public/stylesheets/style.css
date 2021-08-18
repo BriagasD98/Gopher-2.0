@@ -75,7 +75,7 @@ header nav ul {
 
 header nav ul li a {
     padding: 10px 15px;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 1.5vw;
 }
 
@@ -88,7 +88,7 @@ header nav ul li a:hover{
 header nav ul li button{
     padding: 10px 15px;
     color: rgb(1, 30, 75);
-    font-weight: normal;
+    font-weight: 600;
     font-size: 1.5vw;
     border: none;
     background-color: var(--tertiary-color);
@@ -226,6 +226,11 @@ input{
     width: 60%;
     justify-content: center;
     margin: 10px 20px 10px 20px;
+}
+
+.new-event-form label {
+    Color: brown;
+    font-weight: 600;
 }
 
 #eventInfo .card{
@@ -477,6 +482,7 @@ h5{
 }
 .login-form label {
     Color: brown;
+    font-weight: 600;
 }
 
 .signup-form {
@@ -487,6 +493,7 @@ h5{
 
 .signup-form label {
     Color: brown;
+    font-weight: 600;
 }
 
 /* Action form styling */
