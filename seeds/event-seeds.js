@@ -4,7 +4,7 @@ const eventData = [
     {
         title: 'First Event',
         event_description: 'A description of an event',
-        date: '06/20/1998',
+        date: '1998-06-20',
         address: '3010 French Pl',
         user_id: '1',
         category_id: '1'
@@ -12,7 +12,7 @@ const eventData = [
     {
         title: 'Second Event',
         event_description: 'A description of an event',
-        date: '06/20/1998',
+        date: '1998-06-20',
         address: '3010 French Pl',
         user_id: '2',
         category_id: '2'
@@ -20,7 +20,7 @@ const eventData = [
     {
         title: 'Third Event',
         event_description: 'A description of an event',
-        date: '06/20/1998',
+        date: '1998-06-20',
         address: '3010 French Pl',
         user_id: '3',
         category_id: '3'
