@@ -42,10 +42,11 @@ router.get('/:id', (req, res) => {
 });
 
 // GET a single category by name
-router.get('/:title', (req, res) => {
+router.get('/title/:title', (req, res) => {
+
     Category.findOne({
         where: {
-            title: req.params.title
+            title: req.params.title.replace(/-/g," ")
         },
         attributes: [
             'id',

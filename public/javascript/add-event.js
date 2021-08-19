@@ -37,15 +37,16 @@ async function newFormHandler(event) {
       })
 
   }else{
-    var result = await fetch('/api/categories/'+category, {
+    editedCategory = category.replace(/\s/g,'-');
+    console.log(newCategory);
+
+    var result = await fetch('/api/categories/title/'+editedCategory, {
       method: 'GET',
     });
   };
     
   return result.json()
       .then(responsedata=>{
-
-        console.log(responsedata);
 
         categoryID=responsedata.id;
 

@@ -36,23 +36,26 @@ const loadCategories = async function() {
         }
       })
    }else{
-    var result = await fetch('/api/categories', {
-      method: 'POST',
-      body: JSON.stringify({
-        title: category
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-   });
-  }
+    editedCategory = category.replace(/\s/g,'-');
+    console.log(newCategory);
+
+    var result = await fetch('/api/categories/title/'+editedCategory, {
+      method: 'GET',
+    });
+  };
     
     return result.json()
       .then(responsedata=>{
 
+        console.log("i'm here");
+
         categoryID=responsedata.id;
 
-        fetch(`/api/events`, {
+        const id = window.location.toString().split('/')[
+          window.location.toString().split('/').length - 1
+        ];
+
+        fetch(`/api/events/${id}`, {
           method: 'PUT',
           body: JSON.stringify({
             title: title,

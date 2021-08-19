@@ -1,0 +1,40 @@
+#single-event-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+#single-event-card {
+    justify-content: center;
+}
+
+#single-event-card-text-content{
+    padding-top: 15px;
+    background-color: rgb(1, 30, 75);
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+}
+
+#single-event-card-content{
+    width: 100%;
+}
+
+.media{
+    justify-content: center;
+}
+
+.iframe{
+    width: 70%;
+    max-height: 450px;
+    display: flex;
+    justify-content: center;
+}
+
+#new-coment-form{
+    background-color: rgb(1, 30, 75);
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}
