@@ -1,56 +1,66 @@
-<div class="single-event">
-      <article class="event">
-        <div class="title">
+<div class="single-event card is-centered has-text-centered" id="single-event-card">
+  <div class="card-header title is-centered" id="single-event-header">
             <h2>{{event.title}}<h2></h2>
         </div>
-        <div class="description">
-            <p>{{event.event_description}}</p>
+        <div class="card-content is-centered" id="single-event-card-content">
+          <div class="content is-centered" id="single-event-card-text-content">
+              <p>{{event.event_description}}</p>
+              <div class="columns is-centered">
+                <div class="column is-centered">
+                  Category: {{event.category.title}}
+                </div>
+                <div class="column is-centered">
+                  Date: {{event.date}}
+                </div>
+                <div class="column is-centered">
+                  Address: {{event.address}}
+                </div>
+              </div>
+          </div>
+          <!--HERES THE iFRAME-->
+          <div class="media">
+            <div class='iframe'>
+              <iframe src = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyCNGVJ1YMzTfo0ANBH6sPMd9kmnZwqUh2o&q={{event.address}}'
+                style = border: 0
+                loading= lazy></iframe>
+            </div>
+          </div>
         </div>
-        <div class="category">
-            <h3>{{event.category}}</h3>
-        </div>
-        <div class="date">
-            <h3>{{event.date}}</h3>
-        </div>
-
-Address: {{event.address}}
-
-        <!--HERES THE iFRAME-->
-        <div class='iframe'>
-          <iframe src = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyCNGVJ1YMzTfo0ANBH6sPMd9kmnZwqUh2o&q={{event.address}}'
-            width=600
-            height=450
-            style = border: 0
-            loading= lazy></iframe>
-        </div>
-      </article>
 </div>
 
-<h2>Comments</h2>
+<div class="single-event card is-centered has-text-centered" id="single-event-card">
+  <div class="card-header title is-centered" id="single-event-header">
+            <h2>Comments<h2></h2>
+        </div>
 
-{{#if loggedIn}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
+  {{#if loggedIn}}
+
+  <div class="has-text-centered" id="new-coment-form">
+  <h4 class="title has-text-white is-4">New Comment</h4>
+    <form class="comment-form">
+      <div class="field">
+        <div class="control">
+          <textarea class="input is-medium" type="text" id="email-login" placeholder="Enter a new comment"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="button is-block is-small">Submit</button>
+      <br />
+    </form>
+ </div>
+  {{/if}}
+
+  <div class="comments">
+    {{#each event.comments}}
+    <section class="comment">
+      <div class="meta">
+        {{user.username}}
+      </div>
+      <div class="text">
+        {{comment_text}}
+      </div>
+    </section>
+    {{/each}}
   </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form>
-{{/if}}
-
-<div class="comments">
-  {{#each event.comments}}
-  <section class="comment">
-    <div class="meta">
-      {{user.username}}
-    </div>
-    <div class="text">
-      {{comment_text}}
-    </div>
-  </section>
-  {{/each}}
 </div>
 
 {{#if loggedIn}}

@@ -173,7 +173,7 @@ router.delete('/:id', (req, res) => {
 
   router.get('/:date/:category', (req, res) => {
     const date = req.params.date;
-    const category = req.params.category;
+    const category = req.params.category
 
     console.log("date is "+date);
     console.log("category is "+category);
