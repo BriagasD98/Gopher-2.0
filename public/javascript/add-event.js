@@ -74,14 +74,22 @@ const newCategoryHandler = function(event) {
 
     let newCategoryBox = document.createElement('input');
     newCategoryBox.setAttribute('type','text');
+    newCategoryBox.setAttribute('id','new-category-box');
     newCategoryBox.setAttribute('name','new-category-input-choice');
     newCategoryBox.setAttribute('placeholder','Please enter your new category');
   
     location.appendChild(newCategoryBox);
   }
 };
+
+const deleteFormHandler = function(event){
+  event.preventDefault();
+
+  document.location.replace('/dashboard');
+}
   
-  document.querySelector('.new-event-form').addEventListener('submit', newFormHandler);
-  document.querySelector('.dropdown').addEventListener('input', newCategoryHandler)
+  document.querySelector('#submit-button').addEventListener('click', newFormHandler);
+  document.querySelector('#cancel-new-event-btn').addEventListener('click', deleteFormHandler);
+  document.querySelector('#category-selector').addEventListener('input', newCategoryHandler)
 
   loadCategories();
