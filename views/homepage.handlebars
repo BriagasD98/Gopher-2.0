@@ -10,7 +10,7 @@
           </div>
 
           <div class="field has-text-centered">
-            <label class="label has-text-white">Subject</label>
+            <label class="label has-text-white">Category</label>
             <div class="control">
               <div class="select">
                 <select class="dropdown" name = "dropdown">
@@ -27,7 +27,7 @@
               <button type="submit" class="button is-link" id="submitBtn">Submit</button>
             </div>
             <div class="control">
-              <button class="button is-link is-light">Cancel</button>
+              <button class="button is-link is-light" id="cancelBtn">Cancel</button>
             </div>
           </div>
         </div>
@@ -36,44 +36,8 @@
 
 <!--Event List-->
 
-<section class="is-centered">
-{{#if events}}
-  
-  {{#unless loggedIn}}
-    <ul class="event-list">
-      {{#each events}}
-      <li>
-        <article class="event">
-            <div class="title">
-              <h2>{{title}}</h2>
-            </div>
-            <div class="date">
-                {{date}}
-            </div>
-        </article>
-      </li>
-      {{/each}}
-    </ul>
-  {{/unless}}
+<section class="is-centered" id="event-list">
 
-  {{#if loggedIn}}
-    <ul class="event-list">
-      {{#each events}}
-      <li>
-        <article class="post">
-            <div class="title">
-              <a href="/event/{{id}}">{{title}}</a>
-            </div>
-            <div class="date">
-                {{date}}
-            </div>
-        </article>
-      </li>
-      {{/each}}
-    </ul>
-  {{/if}}
-
-{{/if}}
 </section>
 
 <script src="/javascript/homepage-search.js"></script>

@@ -27,7 +27,7 @@ const loadCategories = async function() {
       category = newCategoryValue;
     
 
-      let result = await fetch('/api/categories', {
+      var result = await fetch('/api/categories', {
         method: 'POST',
         body: JSON.stringify({
           title: category

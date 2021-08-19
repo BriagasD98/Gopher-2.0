@@ -171,4 +171,58 @@ router.delete('/:id', (req, res) => {
       });
   });
 
+  router.get('/:date/:category', (req, res) => {
+    const date = req.params.date;
+    const category = req.params.category;
+
+    console.log("date is "+date);
+    console.log("category is "+category);
+
+    if (date==="thisIsTheDefaultDate"){
+      Event.findAll({
+          where: {
+              category_id: req.params.category
+          }
+      })
+        .then(dbPostData => {
+          res.json(dbPostData);
+          })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    } else if (category==="thisIsTheDefaultCategory"){
+      Event.findAll({
+        where: {
+            date: req.params.date,
+        }
+    })
+    .then(dbPostData => {
+      res.json(dbPostData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+    }else{
+
+      console.log(date);
+      console.log(category);
+      Event.findAll({
+        where: {
+            date: req.params.date,
+            category_id: req.params.category
+        }
+    })
+    .then(dbPostData => {
+      res.json(dbPostData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+    }
+    
+  });
+
 module.exports = router;
