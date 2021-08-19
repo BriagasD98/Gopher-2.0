@@ -9,14 +9,14 @@
 <div class="field">
   <label class="label">Title</label>
   <div class="control">
-    <input class="input" type="text" placeholder="{{event.title}}">
+    <input class="input" type="text" name="event-title" value="{{event.title}}">
   </div>
 </div>
 
 <div class="field">
   <label class="label">Description</label>
   <div class="control">
-    <textarea class="textarea" placeholder="{{event.event_descripton}}"></textarea>
+    <textarea class="textarea" name="event-description">{{event.event_description}}</textarea>
   </div>
 </div>
 
@@ -35,7 +35,14 @@
 <div class="field">
   <label class="label">Adress</label>
   <div class="control">
-    <input class="input" type="text" placeholder="{{event.address}}">
+    <input class="input" type="text" name="event-location-street" value="{{event.address}}">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Date</label>
+  <div class="control">
+    <input class="input" type="text" name="event-date" value="{{event.date}}">
   </div>
 </div>
 
