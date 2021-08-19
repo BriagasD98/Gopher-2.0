@@ -26,7 +26,6 @@ const loadCategories = async function() {
       const newCategoryValue = document.querySelector('input[name="new-category-input-choice"]').value;
       category = newCategoryValue;
     
-
       var result = await fetch('/api/categories', {
         method: 'POST',
         body: JSON.stringify({
@@ -36,16 +35,25 @@ const loadCategories = async function() {
           'Content-Type': 'application/json'
         }
       })
-   };
+   }else{
+    var result = await fetch('/api/categories', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: category
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+   });
+  }
     
     return result.json()
       .then(responsedata=>{
 
         categoryID=responsedata.id;
-        console.log(categoryID);
 
         fetch(`/api/events`, {
-          method: 'POST',
+          method: 'PUT',
           body: JSON.stringify({
             title: title,
             event_description: event_description,
