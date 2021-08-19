@@ -48,9 +48,6 @@ router.get('/:date&:category', (req, res) => {
       });
     }else{
 
-      console.log("date: "+req.params.date);
-      console.log("category: "+req.params.category);
-
       Event.findAll({
         where: {
             date: req.params.date,
