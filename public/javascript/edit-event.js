@@ -79,6 +79,7 @@ const loadCategories = async function() {
   
       let newCategoryBox = document.createElement('input');
       newCategoryBox.setAttribute('type','text');
+      newCategoryBox.setAttribute('id','new-category-box');
       newCategoryBox.setAttribute('name','new-category-input-choice');
       newCategoryBox.setAttribute('placeholder','Please enter your new category');
     
@@ -86,7 +87,7 @@ const loadCategories = async function() {
     }
   };
   
-  document.querySelector('.edit-event-form').addEventListener('submit', editFormHandler);
+  document.querySelector('#submit-edit-btn').addEventListener('click', editFormHandler);
   document.querySelector('.dropdown').addEventListener('input', newCategoryHandler)
 
   loadCategories();
