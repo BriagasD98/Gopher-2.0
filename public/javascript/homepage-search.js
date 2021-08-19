@@ -6,6 +6,8 @@ function cancelHandler(event){
 const loadEvents = function(dbEventData){
   var eventList = document.querySelector("#event-list");
 
+  eventList.innerHTML="";
+
   for (x=0;x<dbEventData.length;x++){
     let newEventCard = document.createElement('div');
     newEventCard.setAttribute('class','card');

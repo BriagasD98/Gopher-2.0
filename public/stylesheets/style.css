@@ -231,12 +231,12 @@ input{
 }
 
 .new-event-form label {
-    Color: brown;
+    Color: white;
     font-weight: 600;
 }
 
 .edit-event-form label {
-    Color: brown;
+    Color: white;
     font-weight: 600;
 }
 
@@ -331,17 +331,12 @@ footer a :hover{
 
 /*Map Section*/
 
-iframe{
-    margin: 20px;
-    border-radius: 10px;
-}
-
 h2{
     text-align: center;
     font-size: 2.5em;
     padding: 10px;
     border-radius: 5px;
-    color: brown;
+    color: white;
     font-weight: 600;
 }
 
@@ -375,12 +370,6 @@ h2{
     align-items: center;
     margin: 2px;
     padding: 2px;
-}
-
-iframe{
-    height: auto;
-    min-height: 450px;
-    width: 100%;
 }
 
 .white{
@@ -512,7 +501,7 @@ h5{
     margin: 10px 20px 10px 20px;
 } */
 .login-form label {
-    Color: brown;
+    Color: white;
     font-weight: 600;
 }
 
@@ -523,7 +512,7 @@ h5{
 } */
 
 .signup-form label {
-    Color: brown;
+    Color: white;
     font-weight: 600;
 }
 
