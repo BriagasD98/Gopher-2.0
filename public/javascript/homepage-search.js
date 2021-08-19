@@ -53,7 +53,7 @@ async function searchHandler(event) {
 
     let result = await fetch('/api/events/'+date+"/"+category);
 
-    return result.json().then(dbEventData=>loadEvents(dbEventData));
+      return await result.json().then(dbEventData=>loadEvents(dbEventData));
 };
 
 document.querySelector('#submitBtn').addEventListener('click', searchHandler);
