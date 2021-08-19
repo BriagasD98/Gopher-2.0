@@ -2,13 +2,13 @@ const { Category} = require('../models')
 
 const categoryData = [
     {
-        title: 'First Category'
+        title: 'Music'
     },
     {
-        title: 'Second Category'
+        title: 'Studying'
     },
     {
-        title: 'Third Category'
+        title: 'Sports'
     }
 ]
 
