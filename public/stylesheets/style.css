@@ -231,12 +231,12 @@ input{
 }
 
 .new-event-form label {
-    Color: brown;
+    Color: white;
     font-weight: 600;
 }
 
 .edit-event-form label {
-    Color: brown;
+    Color: white;
     font-weight: 600;
 }
 
