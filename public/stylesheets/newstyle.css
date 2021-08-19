@@ -3,9 +3,28 @@
     padding-bottom: 10px;
     justify-content: center;
     margin-bottom: 0;
+    box-shadow: none;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid black;
 }
 
+#edit-event-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding-bottom: 0px;
+    box-shadow: none;
+}
+
+
 #single-event-card {
+    justify-content: center;
+    background-color: white;
+}
+
+#edit-event-card {
     justify-content: center;
 }
 
@@ -19,6 +38,7 @@
 
 #single-event-card-content{
     width: 100%;
+    margin: 0 5px;
 }
 
 .media{
@@ -33,8 +53,166 @@
 }
 
 #new-coment-form{
-    background-color: rgb(1, 30, 75);
     width: 100%;
     border-radius: 10px;
     padding: 10px;
+}
+
+#comments {
+    background-color: white;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#event-section {
+    background-color: white;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+}
+
+#old-comments {
+    width: 100%;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+#events {
+    width: 100%;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+#new-comment{
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+}
+
+#comment-box{
+    display: flex;
+    padding: 10px;
+    margin: 20px;
+    border-bottom: 1px solid black;
+    background-color: rgb(245,245,245);
+    border-radius: 10px;
+}
+
+#event-box{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 20px;
+    background-color: rgb(245,245,245);
+    border-radius: 10px;
+}
+
+#event-box .title :hover{
+    color: black;
+}
+
+#comment-box img{
+    box-shadow: none
+}
+
+#new-comment img {
+    box-shadow: none
+}
+
+#edit-event-content{
+    width: 100%;
+    background-color: rgb(1, 30, 75);
+    border-radius: 10px;
+}
+
+#edit-event-content .label{
+    color: white;
+}
+
+.select{
+    width: 100%;
+}
+
+.dropdown{
+    width: 100%;
+}
+
+#edit-post-btns{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#edit-post-btns button{
+    width: 100%;
+    margin: 0 20px;
+    background-color: white;
+    color: rgb(1, 30, 75);
+}
+
+#new-post-btns{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#new-post-btns button{
+    width: 100%;
+    margin: 0 20px;
+    background-color: white;
+    color: rgb(1, 30, 75);
+}
+
+#new-post-btns :hover{
+    width: 100%;
+    margin: 0 20px;;
+    background-color: rgb(203, 201, 201);
+    color: black;
+}
+
+#edit-post-btns :hover{
+    width: 100%;
+    margin: 0 20px;;
+    background-color: rgb(203, 201, 201);
+    color: black;;
+}
+
+#search-event-card{
+    background-color: rgb(1, 30, 75);
+    width: 100%;
+}
+
+#home-search-header{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    justify-content: center;
+    margin-bottom: 10px;
+    box-shadow: none;
+}
+
+#create-event-header{
+    padding-top: 0px;
+    padding-bottom: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+    box-shadow: none;
+}
+
+#home-search-card{
+    margin-bottom: 0px;
+    padding:10px 0px;
+    border-radius: 0px;
+    justify-content: center;
+}
+
+#search-content-section{
+    border-radius: 10px;
+    background-color: rgb(1, 30, 75);
+    margin: 0 5px;
+    padding: 15px;
+    width: 100%;
+}
+
+#new-category-box{
+    margin: 10px;
 }

@@ -1,8 +1,8 @@
-<div class="single-event card is-centered has-text-centered" id="single-event-card">
-  <div class="card-header title is-centered" id="single-event-header">
+<div class="single-event is-centered has-text-centered" id="single-event-card">
+  <div class="title is-centered" id="single-event-header">
             <h2>{{event.title}}<h2></h2>
         </div>
-        <div class="card-content is-centered" id="single-event-card-content">
+        <div class="is-centered" id="single-event-card-content">
           <div class="content is-centered" id="single-event-card-text-content">
               <p>{{event.event_description}}</p>
               <div class="columns is-centered">
@@ -28,40 +28,54 @@
         </div>
 </div>
 
-<div class="single-event card is-centered has-text-centered" id="single-event-card">
-  <div class="card-header title is-centered" id="single-event-header">
-            <h2>Comments<h2></h2>
-        </div>
+<article class="media" id="comments">
+  <div class="title is-centered" id="single-event-header">
+      <h2>Comments<h2></h2>
+  </div>
+  <div class="media-content" id="old-comments">
+    {{#each event.comments}}
+    <div id="comment-box">
+      <figure class="media-left">
+          <p class="image is-32x32">
+            <img src="/images/96860-groundhog-day-cartoon-gopher-for-events-near-me.png">
+          </p>
+      </figure>
+      <div class="contents is-$white">
+        <p class="is-$white">
+          <strong>{{user.username}}</strong>
+          <br>
+          {{comment_text}}
+          <br>
+        </p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
 
   {{#if loggedIn}}
 
-  <div class="has-text-centered" id="new-coment-form">
-  <h4 class="title has-text-white is-4">New Comment</h4>
-    <form class="comment-form">
+  <article class="media" id="new-comment">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="/images/96860-groundhog-day-cartoon-gopher-for-events-near-me.png">
+      </p>
+    </figure>
+    <div class="media-content">
       <div class="field">
-        <div class="control">
-          <textarea class="input is-medium" type="text" id="email-login" placeholder="Enter a new comment"></textarea>
-        </div>
+        <p class="control">
+          <textarea class="textarea" placeholder="Add a comment..." name="comment-body"></textarea>
+        </p>
       </div>
-      <button type="submit" class="button is-block is-small">Submit</button>
-      <br />
-    </form>
- </div>
-  {{/if}}
+      <div class="field">
+        <p class="control">
+          <button class="button" id="submit-comment">Post comment</button>
+        </p>
+      </div>
+    </div>
+  </article>
 
-  <div class="comments">
-    {{#each event.comments}}
-    <section class="comment">
-      <div class="meta">
-        {{user.username}}
-      </div>
-      <div class="text">
-        {{comment_text}}
-      </div>
-    </section>
-    {{/each}}
-  </div>
-</div>
+{{/if}}
+</article>
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>

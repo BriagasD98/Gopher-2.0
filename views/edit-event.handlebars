@@ -1,21 +1,28 @@
-<article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
+<div class="card is-centered has-text-centered" id="edit-event-card">
+  <div class="card-header title is-centered" id="edit-event-header">
   <h2>
     Edit Event
   </h2>
+  </div>
+  <div class="card-content" id="edit-event-content">
 
-  <form class="edit-event-form">
-    <div>
-      <label for="event-title">Title</label>
-      <input type="text" id="event-title" name="event-title" value="{{event.title}}"/>
-    </div>
-    <div>
-        <label for="event-description">Description</label>
-        <textarea name="event-description">{{event.event_description}}</textarea>      
-    </div>
-    <div class="field has-text-centered" id="categorySection">
-            <label class="label has-text-white">Category</label>
-            <div class="control">
+<div class="field">
+  <label class="label">Title</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="{{event.title}}">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Description</label>
+  <div class="control">
+    <textarea class="textarea" placeholder="{{event.event_descripton}}"></textarea>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Category</label>
+      <div class="control" id="categorySection">
               <div class="select">
                 <select class="dropdown" name = "dropdown">
                   <option>--</option>
@@ -23,25 +30,22 @@
                 </select>
               </div>
             </div>
-          </div>
-    
-    <div class="Address">
-        <div>
-            <label for="event-location-street">Address</label>
-            <input type="text" id="event-location-street" name="event-location-street" value="{{event.address}}" />
-        </div>
-    </div>
-    <div>
-       <label for="event-date">Date</label>
-      <input type= "date" name="event-date" value="{{event.date}}"/>
-    </div>
-    <button type="submit" class="btn" id="submit-button">Submit</button>
-  </form>
+</div>
 
-  <button class="btn" id="delete-post-btn">Delete Event</button>
+<div class="field">
+  <label class="label">Adress</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="{{event.address}}">
+  </div>
+</div>
 
-</section>
-</article>
+<div class="field is-grouped">
+  <div class="control" id="edit-post-btns">
+    <button class="button is-link" id="submit-edit-btn">Submit</button>
+    <button class="button is-link" id="delete-post-btn">Delete Event</button>
+  </div>
+</div>
+</div>
 
 <script src="/javascript/edit-event.js"></script>
 <script src="/javascript/delete-event.js"></script>
