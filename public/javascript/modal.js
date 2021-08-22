@@ -21,7 +21,6 @@ var connectBg = document.querySelector("#connectModalBG")
 var connectClose = document.querySelector("#connectClose");
 
 connectBtn.addEventListener("click",function(){
-    console.log("clicked");
     connectBg.classList.add("bg-active");
 });
 

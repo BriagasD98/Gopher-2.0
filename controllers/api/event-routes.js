@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Category, Comment, Event, User, Vote } = require('../../models');
+const withAuth = require('../../utils/auth');
 //const withAuth = require('../../utils/auth');
 
 // get all users
@@ -88,9 +89,9 @@ router.get('/:id', (req, res) => {
 });
 
 // Create an EVENT
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
   // expects {title: 'Taskmaster goes public!', event_url: 'https://taskmaster.com/press', user_id: 1}
-  //if (req.session) {
+  if (req.session) {
     Event.create({
         title: req.body.title,
         event_description: req.body.event_description,
@@ -104,11 +105,11 @@ router.post('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-  //}
+  }
 });
 
 // Vote on user event
-router.put('/upvote', (req, res) => {
+router.put('/upvote', withAuth, (req, res) => {
   // make sure the session exists first
   if (req.session) {
     // pass session id along with all destructured properties on req.body
@@ -122,7 +123,7 @@ router.put('/upvote', (req, res) => {
 });
 
 // Update User event
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Event.update(
       {
         title: req.body.title,
@@ -151,7 +152,7 @@ router.put('/:id', (req, res) => {
   });
 
 // Delete an Event
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
     Event.destroy({
       where: {

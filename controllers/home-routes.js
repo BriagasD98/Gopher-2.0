@@ -2,15 +2,17 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Comment, Event, Category } = require('../models');
 const getPhotoList = require('./back-end-photos/photo-list');
+const moment = require('moment');
 
 router.get('/', (req, res) => {
   Category.findAll({
   })
   .then(dbCategoryData => {
     const categories = dbCategoryData.map(category => category.get({ plain: true }));
-
+    var date = moment().format("YYYY-MM-DD");
     res.render('homepage', {
       categories,
+      date,
       loggedIn: req.session.loggedIn
     });
   });
@@ -60,22 +62,25 @@ router.get('/event/:id', (req, res) => {
         }
         
         const event = dbEventData.get({ plain: true });
-  
-        var logos = [];
-
-        console.log(event);
-        console.log(event.comments);
 
         for(x=0;x<event.comments.length;x++){
           var user = event.comments[x].user_id%7;
-          console.log("user id is "+user)
           var logo = getPhotoList()[user];
-          console.log("logo is "+logo);
           event.comments[x].img=logo;
         };
 
+        var date = moment().format("YYYY-MM-DD");
+
+        for(x=0;x<event.comments.length;x++){
+          var user = event.comments[x].user_id%7;
+          var logo = getPhotoList()[user];
+          event.comments[x].img=logo;
+        };
+
+
         res.render('single-event', {
           event,
+          date,
           loggedIn: req.session.loggedIn
         });
       })

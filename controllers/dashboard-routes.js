@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Event, User, Comment, Category } = require('../models');
-const withAuth = require('../utils/auth');
+const moment = require('moment');
 
 router.get('/', (req, res) => {
+
       Event.findAll({
         where: {
             //  use the ID from the session
@@ -42,7 +43,9 @@ router.get('/', (req, res) => {
         // serialize data before passing to template
         const events = dbEventData.map(event => event.get({ plain: true }));
 
-        res.render('dashboard', { events,loggedIn: true });
+        var date = moment().format("YYYY-MM-DD");
+
+        res.render('dashboard', { events, date, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
@@ -52,7 +55,6 @@ router.get('/', (req, res) => {
 
 
 router.get('/edit/:id', (req, res) => {
-    console.log(req.params.id);
     Event.findByPk(req.params.id, {
       attributes: [
         'id',
@@ -86,8 +88,11 @@ router.get('/edit/:id', (req, res) => {
         if (dbEventData) {
           const event = dbEventData.get({ plain: true });
 
+          var date = moment().format("YYYY-MM-DD");
+
           res.render('edit-event', {
             event,
+            date,
             loggedIn: true
           });
         } else {
