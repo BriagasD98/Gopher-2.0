@@ -9,9 +9,7 @@ router.get('/', (req, res) => {
   })
   .then(dbCategoryData => {
     const categories = dbCategoryData.map(category => category.get({ plain: true }));
-
     var date = moment().format("YYYY-MM-DD");
-
     res.render('homepage', {
       categories,
       date,
@@ -72,6 +70,13 @@ router.get('/event/:id', (req, res) => {
         };
 
         var date = moment().format("YYYY-MM-DD");
+
+        for(x=0;x<event.comments.length;x++){
+          var user = event.comments[x].user_id%7;
+          var logo = getPhotoList()[user];
+          event.comments[x].img=logo;
+        };
+
 
         res.render('single-event', {
           event,

@@ -54,6 +54,8 @@ async function newFormHandler(event) {
   return result.json()
       .then(responsedata=>{
 
+        console.log(event_description);
+
         categoryID=responsedata.id;
 
         fetch(`/api/events`, {
