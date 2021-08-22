@@ -41,6 +41,7 @@ async function searchHandler(event) {
     event.preventDefault();
 
     const date = document.querySelector('input[name="date"]').value;
+    var relativeDate = moment(date, "YYYY-MM-DD").fromNow();
 
     if (!date){
       date="thisIsTheDefaultDate";
@@ -49,6 +50,11 @@ async function searchHandler(event) {
     const category = document.querySelector('select[name="dropdown"]').value;
     if (!category){
       category="thisIsTheDefaultCategory";
+    }
+
+    if (relativeDate.split(' ')[relativeDate.split(' ').length - 1]==="ago"){
+      window.alert("please enter a valid date");
+      return;
     }
 
     let result = await fetch('/api/events/'+date+"/"+category);
