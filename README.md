@@ -79,14 +79,28 @@ safer and easier for event-seekers to **Gopher it.**
   
   <br/>
   
+  ![Screenshot (59)](https://user-images.githubusercontent.com/83102464/130361461-04becfc4-2233-4c3f-bf90-d99a65542ab5.png)
+  <br/>
+  
+  ![Screenshot (60)](https://user-images.githubusercontent.com/83102464/130361480-0bd1a21d-090a-449b-8679-8670dd4d0e46.png)
+  <br/>
+  
+  ![Screenshot (61)](https://user-images.githubusercontent.com/83102464/130361504-e5cc8444-9d87-4332-bfdd-9972d43cd7e7.png)
+  <br/>
+  
+  ![Screenshot (62)](https://user-images.githubusercontent.com/83102464/130361513-e56aad51-635e-43cb-ae7c-626e4a289f3a.png)
+
+
+  <br/>
+  
+  ![Screenshot (63)](https://user-images.githubusercontent.com/83102464/130361521-83e824af-4e35-465e-9989-8ba519f48bc0.png)
   
   <br/>
   
+  ![Screenshot (64)](https://user-images.githubusercontent.com/83102464/130361529-a06716a7-5542-4cce-a933-a2bac42dbd47.png)
   
   <br/>
-  
-  
-  <br/>
+
   ## Deployment
   To see a deployed and live **Gopher 2.0**, please follow this link: <br/>
   https://thawing-fortress-75852.herokuapp.com/
