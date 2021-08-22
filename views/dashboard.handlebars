@@ -42,7 +42,7 @@
 <div class="field">
   <label class="label" for="event-date">Date</label>
   <div class="control">
-    <input class="input" type="date" name="event-date">
+    <input class="input" type="date" name="event-date" min="{{date}}">
   </div>
 </div>
 
@@ -77,4 +77,5 @@
 </article>
 {{/if}}
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="/javascript/add-event.js"></script>
