@@ -27,7 +27,7 @@ safer and easier for event-seekers to **Gopher it.**
   ## Installation
   1) clone the repository by entering the following command in the command line: <br/> 
   ```
-  git clone git@github.com:BriagasD98/E-Commerce-BackEnd.git
+  git clone git@github.com:BriagasD98/Gopher-2.0.git
   ```
   2) Install the necessary dependencies by entering the following commands into the command line: <br/>
   ```
