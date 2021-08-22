@@ -22,6 +22,13 @@ async function newFormHandler(event) {
     const date = document.querySelector('input[name="event-date"]').value;
     const street = document.querySelector('input[name="event-location-street"]').value;
 
+    var relativeDate = moment(date, "YYYY-MM-DD").fromNow();
+
+    /*if (relativeDate.split(' ')[relativeDate.split(' ').length - 1]==="ago"){
+      window.alert("please enter a valid date");
+      return;
+    }*/
+
     if(category==="Add a new category"){
       const newCategoryValue = document.querySelector('input[name="new-category-input-choice"]').value;
       category = newCategoryValue;
@@ -38,7 +45,6 @@ async function newFormHandler(event) {
 
   }else{
     editedCategory = category.replace(/\s/g,'-');
-    console.log(newCategory);
 
     var result = await fetch('/api/categories/title/'+editedCategory, {
       method: 'GET',
@@ -47,6 +53,8 @@ async function newFormHandler(event) {
     
   return result.json()
       .then(responsedata=>{
+
+        console.log(event_description);
 
         categoryID=responsedata.id;
 

@@ -216,3 +216,11 @@
 #new-category-box{
     margin: 10px;
 }
+
+#event-box h2{
+    color: black;
+}
+
+#event-box .title :hover {
+    background-color: rgba(1, 30, 75, .1);
+}
