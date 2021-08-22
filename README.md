@@ -122,8 +122,12 @@ safer and easier for event-seekers to **Gopher it.**
   <br/>
   
   ## Questions  
-  If you have questions about the project you can email me, or you can open an issue in the GitHub repository.
+  If you have questions about the project, feel free to reach out to me and my team members:
   <br/>
-  My GitHub profile is [BriagasD98](https://github.com/BriagasD98)  
-    
+  **My GitHub profile** is [BriagasD98](https://github.com/BriagasD98)
+  <br/>
   My Email: [briagasdavid@yahoo.com](mailto:briagasdavid@yahoo.com).
+  <br/>
+  Reach **Lukas Keel** at [lrk83](https://github.com/lrk83)
+  <br/>
+  Reach **Frank Benjamin Morris** at [fbenjaminmorris](https://github.com/fbenjaminmorris)
