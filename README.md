@@ -104,7 +104,10 @@ safer and easier for event-seekers to **Gopher it.**
   ## Deployment
   To see a deployed and live **Gopher 2.0**, please follow this link: <br/>
   https://thawing-fortress-75852.herokuapp.com/
-  
+  **Mobile View of Gopher 2.0**
+  <br/>
+ ![Project 1 - Gopher](https://user-images.githubusercontent.com/83102464/130361801-365ee253-4fd9-43f7-9191-57fb545d069b.jpg)
+
   ## License
   ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
   For License information, visit:
