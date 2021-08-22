@@ -6,14 +6,9 @@ const loadCategories = async function() {
   return result.json()
     .then(responsedata=>{
       for(x=0;x<responsedata.length;x++){
-
-        var relativeDate = moment(responsedata[x].date, "YYYY-MM-DD").fromNow();
-
-        if (relativeDate.split(' ')[relativeDate.split(' ').length - 1]!="ago"){
         var newCategoryOption = document.createElement('option');
         newCategoryOption.textContent=responsedata[x].title;
         document.querySelector('select[name="dropdown"]').appendChild(newCategoryOption);
-        }
       };
   });
 };
@@ -29,10 +24,10 @@ async function newFormHandler(event) {
 
     var relativeDate = moment(date, "YYYY-MM-DD").fromNow();
 
-    if (relativeDate.split(' ')[relativeDate.split(' ').length - 1]==="ago"){
+    /*if (relativeDate.split(' ')[relativeDate.split(' ').length - 1]==="ago"){
       window.alert("please enter a valid date");
       return;
-    }
+    }*/
 
     if(category==="Add a new category"){
       const newCategoryValue = document.querySelector('input[name="new-category-input-choice"]').value;
